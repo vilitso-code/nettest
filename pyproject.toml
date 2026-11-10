@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nettest"
+version = "3.0"
+description = "Layered network diagnostics for Linux, from the link up to HTTPS, over IPv4 and IPv6"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+
+[project.scripts]
+nettest = "nettest:main"
+
+[tool.setuptools]
+py-modules = ["nettest"]

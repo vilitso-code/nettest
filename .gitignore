@@ -1,0 +1,10 @@
+# Run output: contains MAC and IP addresses, network names and LAN device lists
+reports/
+*.csv
+
+# Downloaded MAC vendor list
+data/
+
+__pycache__/
+*.pyc
+output.txt

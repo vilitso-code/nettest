@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "nettest report",
+  "description": "The nettest-*.json file. 'facts' holds measured values; its keys may be added to between versions, so treat unknown keys as optional.",
+  "type": "object",
+  "required": ["schema_version", "version", "interface", "started", "results", "facts"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "version": { "type": "string", "description": "nettest version" },
+    "interface": { "type": ["string", "null"] },
+    "started": { "type": "string", "format": "date-time" },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["layer", "status", "name", "detail", "data", "time"],
+        "properties": {
+          "layer": { "type": "string" },
+          "status": { "enum": ["PASS", "WARN", "FAIL", "INFO", "SKIP"] },
+          "name": { "type": "string" },
+          "detail": { "type": "string" },
+          "data": { "type": "object" },
+          "time": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "facts": { "type": "object" }
+  }
+}
